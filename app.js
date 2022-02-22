@@ -2,9 +2,10 @@ const express= require("express");
 
 const app = express();
 
+app.set('view engine','ejs');
 
 app.get('/',function(req,res){
-    res.send("hello my name is Arshdeep Singh");
+    res.render("home");
 })
 
 app.listen(3000,function()
