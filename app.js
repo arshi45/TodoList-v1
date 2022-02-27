@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 app.set('view engine','ejs');
 
-mongoose.connect('mongodb+srv://admin-arshdeep:arsh123@cluster0.wkoqi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://admin-arsh:arsh123@cluster0.wkoqi.mongodb.net/todolist?retryWrites=true&w=majority')
 
 const itemSchema = {
     name: String
