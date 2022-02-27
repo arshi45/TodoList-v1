@@ -27,10 +27,10 @@ app.get('/',function(req,res){
     {
         if( result.length === 0)
         {
-            res.render("home",{listTitle:"Today",tasks:[{name:"Empty List"}]});
+            res.render("home",{listTitle:"Today",tasks:[{name:"Empty List"}],lists:[{name:"Today"}]});
         }
         else{
-            res.render("home",{listTitle:"Today",tasks:result});
+            res.render("home",{listTitle:"Today",tasks:result,lists:[{name:"Today"}]});
         }
     });
 });
@@ -87,7 +87,6 @@ app.post("/delete",function(req,res){
 
 app.post("/list",function(req,res){
     const customList = req.body.newlist;
-    console.log(customList);
     res.redirect("/"+customList);
 });
 
@@ -105,7 +104,10 @@ app.get("/:customName",function(req,res){
             res.redirect("/"+customListName);
         }
         else{
-            res.render("home",{listTitle:result.name,tasks:result.tasks})
+            List.find(function(err,result2){
+                console.log(result2);
+                res.render("home",{listTitle:result.name,tasks:result.tasks,lists:result2}) 
+            });
         }
     });
 

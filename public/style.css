@@ -56,6 +56,9 @@ input[type=checkbox]:checked{
     left: 25%;
 }
 
+.lists p{
+  display: block;
+}
 
 
 

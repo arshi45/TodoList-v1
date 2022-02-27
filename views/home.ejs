@@ -24,4 +24,11 @@
     <button type="submit">+</button>
   </form>
 
+  <div class="lists">
+  <% lists.forEach(function(list){ %>
+    <p><%=list.name%></p>
+  <% });
+   %>
+  </div>
+
 <%- include("partials/footer") -%> 
