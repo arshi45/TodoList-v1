@@ -1,0 +1,62 @@
+body{
+    text-align: center;
+}
+
+h1{
+    font-family: 'Shizuru',cursive;
+    font-weight: 400;
+    font-size: 17.5vh;
+    margin: 5%;
+}
+
+p{
+    display: inline;
+    font-size: 3vh;
+    font-weight: 400;
+    font-family: 'Cedarville Cursive',cursive;
+}
+
+button{
+    background: transparent;
+    border: none;
+    font-family: 'Cedarville Cursive',cursive;
+    font-size: 3vh;
+    cursor:pointer;
+    font-weight: 600;
+}
+
+input[type=text]{
+    border-color: black;
+    border-radius: 15px;
+    border-style: dashed;
+    text-align: center;
+    font-family: 'Cedarville Cursive',cursive;
+    font-size: 2.5vh;
+    margin-top: 4%;
+}
+
+input[type=text]::placeholder{
+    color: black;
+}
+
+input[type=checkbox]{
+    margin-right: 20px;
+    font-size: 2.5vh;
+    border-width: 1.5px;
+    border-color: black;
+}
+
+input[type=checkbox]:checked{
+    background-color: black;
+}
+
+.container{
+    text-align: left;
+    position: relative;
+    left: 25%;
+}
+
+
+
+
+

@@ -85,6 +85,12 @@ app.post("/delete",function(req,res){
     }
 });
 
+app.post("/list",function(req,res){
+    const customList = req.body.newlist;
+    console.log(customList);
+    res.redirect("/"+customList);
+});
+
 app.get("/:customName",function(req,res){
     var customListName = _.capitalize(req.params.customName);
 
