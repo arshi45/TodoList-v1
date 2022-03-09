@@ -23,15 +23,38 @@ const List = mongoose.model("List",listSchema);
 
 app.get('/',function(req,res){
 
+
     Item.find({},function(err,result)
     {
-        if( result.length === 0)
-        {
-            res.render("home",{listTitle:"Today",tasks:[{name:"Empty List"}],lists:[{name:"Today"}]});
-        }
-        else{
-            res.render("home",{listTitle:"Today",tasks:result,lists:[{name:"Today"}]});
-        }
+        
+        List.find(function(err,result3){
+            if(result3 === null)
+            {
+                const todayList = new List(
+                    {
+                    name:"Today"}
+                    );
+                    todayList.save();
+                if( result.length === 0)
+                {
+                    res.render("home",{listTitle:"Today",tasks:[{name:"Empty List"}],lists:[{name:"Today"}]});
+                }
+                else
+                {
+                   res.render("home",{listTitle:"Today",tasks:result,lists:[{name:"Today"}]});
+                }     
+            }
+            else
+            {
+                if( result.length === 0)
+                {
+                    res.render("home",{listTitle:"Today",tasks:[{name:"Empty List"}],lists:result3});
+                }
+                else{
+                    res.render("home",{listTitle:"Today",tasks:result,lists:result3});
+                }
+            }
+        });
     });
 });
 
@@ -105,13 +128,24 @@ app.get("/:customName",function(req,res){
         }
         else{
             List.find(function(err,result2){
-                console.log(result2);
                 res.render("home",{listTitle:result.name,tasks:result.tasks,lists:result2}) 
             });
         }
     });
 
 });
+
+app.post("/listDelete",function(req,res){
+    const delList = req.body.delList;
+    console.log(delList);
+    List.findOneAndDelete({_id:delList},function(err)
+    {
+        if(!err){
+            res.redirect("/");
+        }
+    });
+
+})
 
 app.listen(3000,function()
 {

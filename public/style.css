@@ -56,8 +56,44 @@ input[type=checkbox]:checked{
     left: 25%;
 }
 
-.lists p{
-  display: block;
+
+.lists{
+    position:fixed;
+    left: 0px;
+    top: 30vh;
+    box-sizing: border-box;
+    background-color: bisque;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+.lists h1{
+    font-size: 10vh;
+}
+
+.lists input{
+    margin-left: 10px;
+}
+
+hr.solid {
+    border-top: 3px solid #0000;
+  }
+
+hr.inList{
+    border-top: 2px solid black;
+    margin: unset;
+    width: 30vh;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.lists button p{
+    font-family: "Lucida",sans-serif;
+    font-size: smaller;
 }
 
 

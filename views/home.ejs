@@ -7,6 +7,7 @@
       <form action="/delete" method="post">
           <input class="form-check-input" type="checkbox" onChange="this.form.submit()" name="checkbox" value ="<%=task._id %>">
           <p><%= task.name %></p>
+          <hr class="inList">
           <input type="hidden" name="listName" value="<%=listTitle%>"></input>
       </form>   
  <% });
@@ -19,16 +20,23 @@
       
   </form>
 
-  <form action="/list" method="post">
+  
+
+  <div class="lists">
+    <h1>Lists</h1>
+    <hr class="solid">
+  <% lists.forEach(function(list){ %>
+    <form action="/listDelete" method="post">
+      <button><p>{x}</p></button>
+      <a href="/<%=list.name%>"><p><%=list.name%></p></a>
+      <input type="hidden" name="delList" value="<%=list._id%>"></input>
+    </form>
+  <% });
+   %>
+   <form action="/list" method="post">
     <input type="text" name="newlist" autocomplete="off" placeholder="New List">
     <button type="submit">+</button>
   </form>
-
-  <div class="lists">
-  <% lists.forEach(function(list){ %>
-    <p><%=list.name%></p>
-  <% });
-   %>
   </div>
 
 <%- include("partials/footer") -%> 
